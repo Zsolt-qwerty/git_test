@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+</head>
+
+<body>
+
+<span>End number: </span><span id="range"></span><input type="number" value="100"><button>Go</button>
+<p></p>
+
+<script>
+
+const range  = document.querySelector("#range");
+const input  = document.querySelector("input");
+const btn    = document.querySelector("button");
+const result = document.querySelector("p");
+// endNumber.addEventListener("keyup", () =>
+//     result.textContent = +input.value
+// );
+btn.addEventListener("click", () => compute());
+
+function compute() {
+    let resultString = `1 to ${endNumber()}: | `;
+    for (let i = 1; i <= endNumber(); i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            resultString += "FizzBuzz";
+        } else if (i % 3 == 0) {
+            resultString += "Fizz";
+        } else if (i % 5 == 0) {
+            resultString += "Buzz";
+        } else {
+            resultString += i;
+        }
+        resultString += " | ";
+    }
+    result.textContent = resultString;
+}
+
+function endNumber() {
+    return Math.floor(Math.abs(+input.value));
+}
+
+
+
+</script>
+
+</body>
+
+</html>
